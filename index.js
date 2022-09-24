@@ -16,17 +16,23 @@ app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "hbs");
 
 app.get("/", (req, res) => {
-  var name = "Cloud Computing";
-  var code = 1644
+  let name = "Cloud Computing";  //string
+  let code = 1644    //int
+
+  //pass dữ liệu từ back-end sang front-end
+  //cú pháp: name (data) : value (data)
+  //gửi dữ liệu là value và nhận với tên là name
   res.render("index", {name: name, ma: code, ky: "Fall 2022"});
 });
 
 app.get("/mobile", (req, res) => {
-  res.render("mobile");
+  let list = ["iPhone", "Samsung", "Oppo", "Huawei"];
+  res.render("mobile", { mobiles: list });
 });
 
 app.get("/laptop", (req, res) => {
-  res.render("laptop");
+  let list = ["Macbook", "Dell", "HP", "MSI"]
+  res.render("laptop", {laptop: list});
 });
 
 //listen port để chạy server
